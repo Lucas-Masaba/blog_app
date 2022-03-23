@@ -51,6 +51,12 @@ rails s
 
 - Visit http://localhost:3000/ on your browser to view the output.
 
+## Tests
+- To run tests, simply enter the command below in your command line
+  
+```bash
+  rspec
+```
 ## Author
 
 👤 **Khusiima Luke Masaba**
