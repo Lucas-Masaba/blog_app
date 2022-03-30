@@ -1,13 +1,23 @@
-<h1>This is the infos#shows page.</h1>
-<%= image_tag ("#{@user.photo}"), alt: "#{@user.name}'s photo", width: "10%", height: "80px" %> Name: <%= @user.name %>   Number of posts: <%= @user.posts.count%><br>
+  <div class="user_info">
+   <%= image_tag ("#{@user.photo}"), alt: "#{@user.name}'s photo", width: "100px", height: "80px" %>
+   <span class="text_info">
+   <span class="user_name"><%= "Name: #{@user.name}"%></span>
+   <br>
+   <span class="numbers"><%= "Number of posts: #{@user.posts.count}"%></span>
+   </span>
+   <br>
+  </div>
 
-<span>"Bio"</span><br>
-<%= @user.bio%><br><br>
-
+<div class="bio_container">
+  <p class="bio_heading">Bio</p><br>
+  <%= @user.bio%><br><br>
+</div>
 <% @user_posts.each do |post|%>
-  <%= "Post ##{post.id}"%> <br> 
+  <div class="post_container">
+  <strong><%= "Post ##{post.id}"%></strong> <br> 
   <p><%= post.text %></p>
-  <span><%= "Comments: #{post.comments.count}  Likes: #{post.likes.count}"%></span> <br><br>
+  <span class="post_details"><%= "Comments: #{post.comments.count}  Likes: #{post.likes.count}"%></span> <br><br>
+  </div>
 <% end %>
 
-<button type="button">See all posts</button>
+<p><button class="see_posts" type="button">See all posts</button></p>

@@ -13,3 +13,73 @@
  *= require_tree .
  *= require_self
  */
+
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+ /*users page*/
+.user_info {
+  display: flex;
+  
+  margin: 3%;
+ }
+
+.text_info {
+  border: 3px solid black;
+  margin-left: 2%;
+  width: 100%;
+}
+
+.user_name {
+  font-size: 150%;
+  padding: 2%;
+  font-weight: bold;
+}
+
+.numbers {
+  position: absolute;
+  right: 5%;
+
+  font-weight: bold;
+}
+
+/*users_id*/
+.bio_container {
+  border: 3px solid black;
+  padding-left: 2%;
+  margin-bottom: 4%;
+}
+
+.bio_heading {
+  font-weight: bold;
+  font-size: 110%;
+}
+
+.post_container {
+  border: 3px solid black;
+  margin-bottom: 2%;
+  padding: 2%;
+}
+
+.post_details {
+  position: absolute;
+  right: 7%;
+}
+
+.see_posts {
+  position: absolute;
+  left: 50%;
+  margin-bottom: 20%;
+}
+
+.comments_container {
+  border: 3px solid black;
+  margin-top: -2%;
+  padding-left: 2%;
+}
+
+.push_right {
+  margin-left: 20%;
+}

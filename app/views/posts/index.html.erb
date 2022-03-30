@@ -1,18 +1,25 @@
-<h1>This is the Posts#index page.</h1>
-
-<%= image_tag ("#{@user.photo}"), alt: "#{@user.name}'s photo", width: "10%", height: "80px" %> Name: <%= @user.name %>   Number of posts: <%= @user.posts.count%><br>
-  <hr>
+  <div class="user_info">
+   <%= image_tag ("#{@user.photo}"), alt: "#{@user.name}'s photo", width: "100px", height: "80px" %>
+   <span class="text_info">
+   <span class="user_name"><%= "Name: #{@user.name}"%></span>
+   <br>
+   <span class="numbers"><%= "Number of posts: #{@user.posts.count}"%></span>
+   </span>
+   <br>
+  </div> 
   <br>
 <% @posts.each do | post | %>
-  <%= "Post ##{post.id}"%> 
+  <div class="post_container">
+  <strong><%= "Post ##{post.id}"%> </strong>
   <p><%= post.text%></p>
-    <span><%= "Comments: #{post.comments.count}  Likes: #{post.likes.count}"%></span>
-    <hr>
+    <span class="post_details"><%= "Comments: #{post.comments.count}  Likes: #{post.likes.count}"%></span><br><br>
+   </div> 
     <br>
+      <div class="comments_container">
     <% post.recent_comments.each do |comment|%>
           <span><%="#{comment.user.name}: #{comment.text}" %></span><br>
     <%end%>
-    <hr>
+      </div>
   <br>
 <%end%>
 

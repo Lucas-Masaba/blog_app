@@ -1,6 +1,11 @@
-<h1>This is the Users#index page.</h1>
 <% @users.each do |user| %>
   <div class="user_info">
-   <%= image_tag ("#{user.photo}"), alt: "#{user.name}'s photo", width: "100px", height: "80px" %> Name: <%= user.name %>   Number of posts: <%= user.posts.count%><br>
+   <%= image_tag ("#{user.photo}"), alt: "#{user.name}'s photo", width: "100px", height: "80px" %>
+   <span class="text_info">
+   <span class="user_name"><%= "Name: #{user.name}"%></span>
+   <br>
+   <span class="numbers"><%= "Number of posts: #{user.posts.count}"%></span>
+   </span>
+   <br>
   </div>
 <% end %>
