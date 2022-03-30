@@ -14,17 +14,15 @@
  *= require_self
  */
 
-
 body {
   font-family: 'Courier New', Courier, monospace;
 }
 
- /*users page*/
+/* users page */
 .user_info {
   display: flex;
-  
   margin: 3%;
- }
+}
 
 .text_info {
   border: 3px solid black;
@@ -41,11 +39,10 @@ body {
 .numbers {
   position: absolute;
   right: 5%;
-
   font-weight: bold;
 }
 
-/*users_id*/
+/* users_id */
 .bio_container {
   border: 3px solid black;
   padding-left: 2%;
