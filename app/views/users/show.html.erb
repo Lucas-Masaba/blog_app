@@ -14,7 +14,9 @@
 </div>
 <% @user_posts.each do |post|%>
   <div class="post_container">
+  <%= link_to "/users/#{@user.id}/posts" do%>
   <strong><%= "Post ##{post.id}"%></strong> <br> 
+  <%end%>
   <p><%= post.text %></p>
   <span class="post_details"><%= "Comments: #{post.comments_counter}  Likes: #{post.likes_counter}"%></span> <br><br>
   </div>

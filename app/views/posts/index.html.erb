@@ -10,7 +10,9 @@
   <br>
 <% @posts.each do | post | %>
   <div class="post_container">
+  <%= link_to "/users/#{post.id}/posts/#{post.id}" do%>
   <strong><%= "Post ##{post.id}"%> </strong>
+  <%end%>
   <p><%= post.text%></p>
     <span class="post_details"><%= "Comments: #{post.comments_counter}  Likes: #{post.likes_counter}"%></span><br><br>
    </div> 
