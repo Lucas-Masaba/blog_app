@@ -1,1 +1,8 @@
 <h1>This is the Posts#shows page.</h1>
+
+<h3><%= "Post ##{@a_post.id} by #{@a_post.user.name}"%></h3>
+<p><%= @a_post.text%></p>
+
+<% @show_comments.each do |comment| %>
+  <%= "#{comment.user.name}: #{comment.text}"%><br>
+<%end%>

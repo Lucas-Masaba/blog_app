@@ -1,1 +1,13 @@
-<h1>This is the Users#shows page.</h1>
+<h1>This is the infos#shows page.</h1>
+<%= image_tag ("#{@user.photo}"), alt: "#{@user.name}'s photo", width: "10%", height: "80px" %> Name: <%= @user.name %>   Number of posts: <%= @user.posts.count%><br>
+
+<span>"Bio"</span><br>
+<%= @user.bio%><br><br>
+
+<% @user_posts.each do |post|%>
+  <%= "Post ##{post.id}"%> <br> 
+  <p><%= post.text %></p>
+  <span><%= "Comments: #{post.comments.count}  Likes: #{post.likes.count}"%></span> <br><br>
+<% end %>
+
+<button type="button">See all posts</button>

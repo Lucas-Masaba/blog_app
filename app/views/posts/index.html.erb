@@ -1,2 +1,19 @@
 <h1>This is the Posts#index page.</h1>
 
+<%= image_tag ("#{@user.photo}"), alt: "#{@user.name}'s photo", width: "10%", height: "80px" %> Name: <%= @user.name %>   Number of posts: <%= @user.posts.count%><br>
+  <hr>
+  <br>
+<% @posts.each do | post | %>
+  <%= "Post ##{post.id}"%> 
+  <p><%= post.text%></p>
+    <span><%= "Comments: #{post.comments.count}  Likes: #{post.likes.count}"%></span>
+    <hr>
+    <br>
+    <% post.recent_comments.each do |comment|%>
+          <span><%="#{comment.user.name}: #{comment.text}" %></span><br>
+    <%end%>
+    <hr>
+  <br>
+<%end%>
+
+<button type = "button">Pagination</button>
