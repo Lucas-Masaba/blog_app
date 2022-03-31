@@ -8,12 +8,14 @@
   </span>
   <br>
 </div>
+
 <div class="bio_container">
   <p class="bio_heading">Bio</p>
   <br>
   <%= @user.bio%><br>
   <br>
 </div>
+
 <% @user_posts.each do |post|%>
   <div class="post_container">
     <%= link_to "/users/#{@user.id}/posts" do%>
@@ -24,4 +26,5 @@
     <br>
   </div>
 <% end %>
+
 <p><button class="see_posts" type="button">See all posts</button></p>
