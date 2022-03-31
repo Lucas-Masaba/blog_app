@@ -1,25 +1,27 @@
-  <div class="user_info">
-   <%= image_tag ("#{@user.photo}"), alt: "#{@user.name}'s photo", width: "100px", height: "80px" %>
-   <span class="text_info">
-   <span class="user_name"><%= "Name: #{@user.name}"%></span>
-   <br>
-   <span class="numbers"><%= "Number of posts: #{@user.posts_counter}"%></span>
-   </span>
-   <br>
-  </div>
-
+  
+<div class="user_info">
+  <%= image_tag ("#{@user.photo}"), alt: "#{@user.name}'s photo", width: "100px", height: "80px" %>
+  <span class="text_info">
+    <span class="user_name"><%= "Name: #{@user.name}"%></span>
+    <br>
+    <span class="numbers"><%= "Number of posts: #{@user.posts_counter}"%></span>
+  </span>
+  <br>
+</div>
 <div class="bio_container">
-  <p class="bio_heading">Bio</p><br>
-  <%= @user.bio%><br><br>
+  <p class="bio_heading">Bio</p>
+  <br>
+  <%= @user.bio%><br>
+  <br>
 </div>
 <% @user_posts.each do |post|%>
   <div class="post_container">
-  <%= link_to "/users/#{@user.id}/posts" do%>
-  <strong><%= "Post ##{post.id}"%></strong> <br> 
-  <%end%>
-  <p><%= post.text %></p>
-  <span class="post_details"><%= "Comments: #{post.comments_counter}  Likes: #{post.likes_counter}"%></span> <br><br>
+    <%= link_to "/users/#{@user.id}/posts" do%>
+      <strong><%= "Post ##{post.id}"%></strong> <br>
+    <%end%>
+    <p><%= post.text %></p>
+    <span class="post_details"><%= "Comments: #{post.comments_counter}  Likes: #{post.likes_counter}"%></span> <br>
+    <br>
   </div>
 <% end %>
-
 <p><button class="see_posts" type="button">See all posts</button></p>

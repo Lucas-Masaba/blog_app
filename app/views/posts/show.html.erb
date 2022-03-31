@@ -1,12 +1,11 @@
-
 <div class="post_container">
-<span><strong><%= "Post ##{@a_post.id} by #{@a_post.user.name}"%></strong></span>
-<span class="push_right"><%= "Comments: #{@a_post.comments_counter}  Likes: #{@a_post.likes.count}"%></span> <br><br>
-<p><%= @a_post.text%></p>
+  <span><strong><%= "Post ##{@a_post.id} by #{@a_post.user.name}"%></strong></span>
+  <span class="push_right"><%= "Comments: #{@a_post.comments_counter}  Likes: #{@a_post.likes.count}"%></span> <br>
+  <br>
+  <p><%= @a_post.text%></p>
 </div>
-
 <div class="comments_container">
-<% @show_comments.each do |comment| %>
-  <%= "#{comment.user.name}: #{comment.text}"%><br>
-<%end%>
+  <% @show_comments.each do |comment| %>
+    <%= "#{comment.user.name}: #{comment.text}"%><br>
+  <%end%>
 </div>
