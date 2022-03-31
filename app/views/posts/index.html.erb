@@ -14,6 +14,8 @@
     <%= link_to "/users/#{post.id}/posts/#{post.id}" do%>
       <strong><%= "Post ##{post.id}"%> </strong>
     <%end%>
+    <br>
+    <span><strong><%= post.title%></span></strong>
     <p><%= post.text%></p>
     <span class="post_details"><%= "Comments: #{post.comments_counter}  Likes: #{post.likes_counter}"%></span><br>
     <br>

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'posts/index'
   get 'users/index'
 
+  post 'posts/new'
   post 'comments/create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
