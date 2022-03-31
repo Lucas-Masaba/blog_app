@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'posts/index'
   get 'users/index'
 
-  post 'comments/:post_id'
+  post 'comments/create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

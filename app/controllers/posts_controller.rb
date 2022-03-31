@@ -8,4 +8,11 @@ class PostsController < ApplicationController
     @a_post = Post.find(params[:id])
     @show_comments = @a_post.comments
   end
+
+  def new
+  end
+
+  def create
+  end
+
 end
