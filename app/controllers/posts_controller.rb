@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
+
   end
 
   def show
@@ -24,7 +25,7 @@ class PostsController < ApplicationController
       format.html do
         if @post.save
           flash[:success] = "Success"
-          redirect_to "/users/#{user.id}/posts"
+          redirect_to "user_comments_path"
         else
           flash.now[:error] = "Failed"
           render :new, locals: {post: @post}

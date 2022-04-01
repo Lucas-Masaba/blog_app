@@ -85,3 +85,7 @@ body {
 .form_title {
   text-align: center;
 }
+
+.post_form {
+  display: flex;
+}

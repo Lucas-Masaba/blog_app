@@ -9,3 +9,6 @@
     <%= "#{comment.user.name}: #{comment.text}"%><br>
   <%end%>
 </div>
+
+<%= render "comments/form", post: @_post %>
+<%= render "likes/form", post: @a_post %>

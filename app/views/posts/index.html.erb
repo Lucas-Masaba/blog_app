@@ -9,6 +9,9 @@
   <br>
 </div>
 <br>
+
+<%= link_to '<button type="button">Add Post</button>'.html_safe, "/users/#{@user.id}/posts/new" %>
+<br><br>
 <% @posts.each do | post | %>
   <div class="post_container">
     <%= link_to "/users/#{post.id}/posts/#{post.id}" do%>
@@ -19,6 +22,7 @@
     <p><%= post.text%></p>
     <span class="post_details"><%= "Comments: #{post.comments_counter}  Likes: #{post.likes_counter}"%></span><br>
     <br>
+
   </div>
   <br>
   <div class="comments_container">

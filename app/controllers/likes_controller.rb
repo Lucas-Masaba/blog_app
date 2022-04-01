@@ -1,13 +1,13 @@
-class CommentsController < ApplicationController
+class LikesController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.new(params.permit(:text))
-    @comment.user_id = current_user.id
+    @like = @post.likes.new(params.permit(:text))
+    @like.user_id = current_user.id
 
     respond_to do |format|
       format.html do
-        if @comment.save
-          redirect_to user_post_path(current_user, @post), notice: 'Comment created successfully!'
+        if @like.save
+          redirect_to "/users/#{current_user.id}/posts/#{current_user.id}", notice: 'Comment created successfully!'
         else
           # error message
           flash.now[:error] = 'Error: Post could not be created'
