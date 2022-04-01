@@ -25,7 +25,7 @@ class PostsController < ApplicationController
       format.html do
         if @post.save
           flash[:success] = "Success"
-          redirect_to "user_comments_path"
+          redirect_to "/users/#{user.id}/posts"
         else
           flash.now[:error] = "Failed"
           render :new, locals: {post: @post}
