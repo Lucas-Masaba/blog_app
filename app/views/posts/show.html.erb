@@ -1,3 +1,8 @@
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
 <div class="post_container">
   <span><strong><%= "Post ##{@a_post.id} by #{@a_post.user.name}"%></strong></span>
   <span class="push_right"><%= "Comments: #{@a_post.comments_counter}  Likes: #{@a_post.likes.count}"%></span> <br>

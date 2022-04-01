@@ -1,4 +1,8 @@
-  
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
 <div class="user_info">
   <%= image_tag ("#{@user.photo}"), alt: "#{@user.name}'s photo", width: "100px", height: "80px" %>
   <span class="text_info">
@@ -21,6 +25,7 @@
     <%= link_to "/users/#{@user.id}/posts" do%>
       <strong><%= "Post ##{post.id}"%></strong> <br>
     <%end%>
+    <span><%=  %></span>
     <p><%= post.text %></p>
     <span class="post_details"><%= "Comments: #{post.comments_counter}  Likes: #{post.likes_counter}"%></span> <br>
     <br>

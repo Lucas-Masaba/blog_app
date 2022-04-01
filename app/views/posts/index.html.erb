@@ -1,4 +1,8 @@
-  
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>  
 <div class="user_info">
   <%= image_tag ("#{@user.photo}"), alt: "#{@user.name}'s photo", width: "100px", height: "80px" %>
   <span class="text_info">
