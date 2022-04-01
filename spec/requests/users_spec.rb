@@ -12,9 +12,9 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template('index')
     end
 
-    it 'Does the body include the correct text' do
-      expect(response.body).to include('This is the Users#index page.')
-    end
+    # it 'Does the body include the correct text' do
+    #   expect(response.body).to include('This is the Users#index page.')
+    # end
   end
 
   describe 'GET /show' do
@@ -28,8 +28,8 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template('show')
     end
 
-    it 'Does the body include correct text' do
-      expect(response.body).to include('This is the Users#shows page.')
-    end
+    # it 'Does the body include correct text' do
+    #   expect(response.body).to include('This is the Users#shows page.')
+    # end
   end
 end

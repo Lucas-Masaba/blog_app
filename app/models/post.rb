@@ -5,11 +5,9 @@ class Post < ApplicationRecord
 
   after_save :update_post_user_counter
 
-  validate :title, presence: true, length: { in: 0..250 }
-  validates :comments_counter, length: { in: 0..100000 }
-  validates :likes_counter, length: { in: 0..100000 }
-
-
+  validates :title, presence: true, length: { maximum: 250 }
+  validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def recent_comments
     comments.last(5)
