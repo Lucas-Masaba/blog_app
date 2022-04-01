@@ -8,7 +8,7 @@
   <span class="text_info">
     <span class="user_name"><%= "Name: #{@user.name}"%></span>
     <br>
-    <span class="numbers"><%= "Number of posts: #{@user.posts_counter}"%></span>
+    <span class="numbers"><%= "Number of posts: #{@user.posts_counter || 0}"%></span>
   </span>
   <br>
 </div>
@@ -24,7 +24,7 @@
     <br>
     <span><strong><%= post.title%></span></strong>
     <p><%= post.text%></p>
-    <span class="post_details"><%= "Comments: #{post.comments_counter}  Likes: #{post.likes_counter}"%></span><br>
+    <span class="post_details"><%= "Comments: #{post.comments_counter || 0}  Likes: #{post.likes_counter || 0}"%></span><br>
     <br>
 
   </div>
