@@ -17,14 +17,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    user = User.find(params[:user_id])
-    @post = user.posts.new(post_params)
+    
+    @post = current_user.posts.new(params.require(:post).permit(:title, :text))
 
     respond_to do |format|
       format.html do
         if @post.save
           flash[:success] = 'Success'
-          redirect_to "/users/#{user.id}/posts"
+          redirect_to "/users/#{current_user.id}/posts"
         else
           flash.now[:error] = 'Failed'
           render :new, locals: { post: @post }
