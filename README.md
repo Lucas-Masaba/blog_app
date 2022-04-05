@@ -37,6 +37,18 @@ code .
 cd blog_app
 ```
 
+## Authorize New User Through Mail
+
+- Create a new file called `local_env.yml` in the folder `config/` and paste the following code in it:
+  > `PG_USERNAME: "YourPostgresUsername"`
+  > `PG_PASSWORD: "YourPostgresPassword"`
+  > `GMAIL_USERNAME: "YourGmailSenderUsername"`
+  > `GMAIL_PASS: "YourGmailSenderPassword"`
+Note: You can use your own gmail account to send emails but first you have to configure 2-Step Authorization and after that you have to configure
+an APP Password for this specific application. If you want more information about this, GOOGLE IT.
+- Execute `rails db:create` to create the database.
+- Run `rails s` to run the application.
+
 ## Install Gems
 
 
