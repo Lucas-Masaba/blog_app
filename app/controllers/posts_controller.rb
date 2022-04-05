@@ -17,7 +17,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    
     @post = current_user.posts.new(params.require(:post).permit(:title, :text))
 
     respond_to do |format|
