@@ -8,12 +8,6 @@ class Post < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 250 }
   
-  Roles = [ :admin, :default ]
-
-  def is?( requested_role )
-    self.role == requested_role.to_s
-  end
-
   def recent_comments
     comments.last(5)
   end
