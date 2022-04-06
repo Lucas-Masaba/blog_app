@@ -23,6 +23,9 @@
     <%end%>
     <br>
     <span><strong><%= post.title%></span></strong>
+    <% if can? :destroy, post %>
+      <%= link_to "View", post %>
+    <% end %>
     <p><%= post.text%></p>
     <span class="post_details"><%= "Comments: #{post.comments_counter || 0}  Likes: #{post.likes_counter || 0}"%></span><br>
     <br>
