@@ -30,6 +30,10 @@
     <span class="post_details"><%= "Comments: #{post.comments_counter || 0}  Likes: #{post.likes_counter || 0}"%></span> <br>
     <br>
   </div>
+        <% if can? :destroy, post %>
+          <%= button_to "Delete Post", user_post_path(user_id: @user.id, id: post.id), method: :delete %>
+        <% end %>
 <% end %>
+
 
 <p><button class="see_posts" type="button">See all posts</button></p>

@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(params.require(:post).permit(:title, :text))
+    @post = current_user.posts.new(post_params)
 
     respond_to do |format|
       format.html do
@@ -33,6 +33,13 @@ class PostsController < ApplicationController
         end
       end
     end
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+
+    redirect_to "/users/#{current_user.id}", notice: 'Post is deleted!'
   end
 
   private

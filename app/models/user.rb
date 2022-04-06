@@ -10,11 +10,11 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   
-  
-  Roles = [ :admin, :default ]
+  enum role: %i[user admin]
+  after_initialize :set_default_role, if: :new_record?
 
-  def is?( requested_role )
-    self.role == requested_role.to_s
+  def set_default_role
+    self.role ||= :user
   end
   
   def three_most_recent

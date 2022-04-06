@@ -12,8 +12,14 @@
 <div class="comments_container">
   <% @show_comments.each do |comment| %>
     <%= "#{comment.user.name}: #{comment.text}"%><br>
+        <% if can? :destroy, comment %>
+          <%= button_to "Delete Comment", user_post_comment_path(user_id: current_user.id, post_id: @post.id, id: comment.id), method: :delete %>
+        <% end %>
   <%end%>
 </div>
 <br>
+
+        
+
 <%= render "likes/form", post: @a_post %>
 <%= render "comments/form", post: @_post %>

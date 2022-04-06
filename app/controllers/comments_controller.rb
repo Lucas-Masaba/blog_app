@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+  
   def create
 
-    load_and_authorize_resource
     
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(params.permit(:text))
@@ -20,4 +21,13 @@ class CommentsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+
+    redirect_to user_posts_path, notice: 'Comment Deleted!'
+  end
 end
+
+

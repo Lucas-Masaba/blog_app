@@ -1,13 +1,18 @@
 class Post < ApplicationRecord
   has_many :likes, foreign_key: 'post_id'
-  has_many :comments, foreign_key: 'post_id'
+  has_many :comments, dependent: :destroy, foreign_key: 'post_id'
   belongs_to :user, foreign_key: :user_id
 
   after_save :update_post_user_counter
+  after_destroy :update_post_user_counter
 
   validates :title, presence: true, length: { maximum: 250 }
-  validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  
+  Roles = [ :admin, :default ]
+
+  def is?( requested_role )
+    self.role == requested_role.to_s
+  end
 
   def recent_comments
     comments.last(5)
