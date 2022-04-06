@@ -85,3 +85,5 @@ gem 'rails-controller-testing'
 gem 'htmlbeautifier'
 
 gem 'devise'
+
+gem 'cancancan'
