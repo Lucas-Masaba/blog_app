@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   after_destroy :update_post_user_counter
 
   validates :title, presence: true, length: { maximum: 250 }
-  
+
   def recent_comments
     comments.last(5)
   end
