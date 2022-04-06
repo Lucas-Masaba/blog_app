@@ -76,6 +76,12 @@ rails s
 - GitHub: [@Lucas-Masaba](https://github.com/Lucas-Masaba)
 - Twitter: [@MasabaLuke](https://twitter.com/MasabaLuke)
 - LinkedIn: [Khusiima Luke Masaba](https://linkedin.com/in/khusiima-luke-masaba)
+
+👤 **Luis Abarca**
+
+- GitHub: [@TheLuisAbarca](https://github.com/theLuisAbarca/)
+- Twitter: [@TheLuisAbarca](https://twitter.com/TheLuisAbarca)
+- LinkedIn: [Luís Anghelo Abarca Villacís](https://www.linkedin.com/in/techadvisor-luis-abarca/)
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
