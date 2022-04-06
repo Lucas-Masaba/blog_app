@@ -1,5 +1,8 @@
 class CommentsController < ApplicationController
   def create
+
+    load_and_authorize_resource
+    
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(params.permit(:text))
     @comment.user_id = current_user.id
