@@ -23,14 +23,14 @@ RSpec.describe 'User index', type: :feature do
     end
 
     it 'shows username for all other users' do
-      expect(page).to have_css("span")
+      expect(page).to have_css('span')
     end
 
     it 'redirects to the users show page' do
-      click_link "Name: lucas"
+      click_link 'Name: lucas'
       expect(page).to have_current_path "/users/#{@user.id}"
     end
-    
+
     it 'redirects to users posts' do
       visit "/users/#{@user.id}"
       expect(page).to have_current_path "/users/#{@user.id}"
