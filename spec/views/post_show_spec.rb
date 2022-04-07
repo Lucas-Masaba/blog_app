@@ -20,15 +20,14 @@ RSpec.describe 'Post show page', type: :feature do
       @comment2 = @post1.comments.create!(user_id: @user.id, text: 'test comment 2')
       @comment3 = @post1.comments.create!(user_id: @user2.id, text: 'test comment 3')
       @comment4 = @post1.comments.create!(user_id: @user2.id, text: 'test comment 4')
-      visit users_index_path
+      visit new_user_session_path
       fill_in 'Email', with: 'railstest84@gmail.com'
       fill_in 'Password', with: '123456'
       click_button 'Log in'
-      visit "/users/#{@user.id}/posts"
+      visit "/users/#{@user.id}/posts/#{@post1.id}"
     end
 
     it 'shows the right content' do
-      expect(page).to have_css("img[src='http://photo.com']")
       expect(page).to have_content('title1')
       expect(page).to have_content('lucas')
       expect(page).to have_content('Luis')

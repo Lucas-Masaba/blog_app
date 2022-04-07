@@ -5,7 +5,7 @@ RSpec.describe 'Log in process', type: :feature do
     before :each do
       @user = User.new(name: 'lucas', photo: 'http://photo.com', bio: 'Hello rails',
                        email: 'railstest84@gmail.com', password: '123456')
-      visit users_index_path
+      visit new_user_session_path
       fill_in 'Email', with: ''
       fill_in 'Password', with: ''
       click_button 'Log in'

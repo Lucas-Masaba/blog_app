@@ -14,7 +14,7 @@ RSpec.describe 'Post index page', type: :feature do
       @post4 = Post.create(title: 'title4', text: 'body4', user_id: @user.id)
       @comment1 = @post1.comments.create!(user_id: @user.id, text: 'test comment 1')
       @comment2 = @post1.comments.create!(user_id: @user.id, text: 'test comment 2')
-      visit users_index_path
+      visit new_user_session_path
       fill_in 'Email', with: 'railstest84@gmail.com'
       fill_in 'Password', with: '123456'
       click_button 'Log in'

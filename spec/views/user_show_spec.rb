@@ -12,7 +12,7 @@ RSpec.describe 'User show page', type: :feature do
       @post2 = Post.create(title: 'title2', text: 'body2', user_id: @user.id)
       @post3 = Post.create(title: 'title3', text: 'body3', user_id: @user.id)
       @post4 = Post.create(title: 'title4', text: 'body4', user_id: @user.id)
-      visit users_index_path
+      visit new_user_session_path
       fill_in 'Email', with: 'railstest84@gmail.com'
       fill_in 'Password', with: '123456'
       click_button 'Log in'
