@@ -4,7 +4,7 @@
   </div>
 <% end %>
 <div class="user_info">
-  <%= image_tag ("#{@user.photo}"), alt: "#{@user.name}'s photo", width: "100px", height: "80px" %>
+    <img src="<%= @user.photo %>" class="user-img" alt="profile picture of <%= @user.name %>", width="100px", height="80px" />
   <span class="text_info">
     <span class="user_name"><%= "Name: #{@user.name}"%></span>
     <br>
@@ -36,4 +36,4 @@
 <% end %>
 
 
-<p><button class="see_posts" type="button">See all posts</button></p>
+<p><%= link_to "See All Posts", "/users/#{@user.id}/posts" %></p>
