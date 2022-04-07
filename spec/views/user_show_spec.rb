@@ -2,11 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'User show page', type: :feature do
   describe 'view page content' do
-
     before :each do
       @photo = 'http://photo.com'
       @user = User.new(name: 'lucas', photo: @photo, bio: 'Hello rails',
-        email: 'railstest84@gmail.com', password: '123456')
+                       email: 'railstest84@gmail.com', password: '123456')
       @user.skip_confirmation!
       @user.save!
       @post1 = Post.create(title: 'title1', text: 'body1', user_id: @user.id)
@@ -17,10 +16,10 @@ RSpec.describe 'User show page', type: :feature do
       fill_in 'Email', with: 'railstest84@gmail.com'
       fill_in 'Password', with: '123456'
       click_button 'Log in'
-      visit "/users"
+      visit '/users'
       visit "/users/#{@user.id}"
     end
-    
+
     it 'shows the right content' do
       expect(page).to have_css("img[src='http://photo.com']")
       expect(page).to have_content('lucas')
@@ -43,13 +42,12 @@ RSpec.describe 'User show page', type: :feature do
       expect(page).to have_content('body2')
       expect(page).to have_content('body3')
       expect(page).to have_content('body4')
-      #expect(page).to have_content('body5')
+      # expect(page).to have_content('body5')
     end
 
     it 'redirects to view posts show page' do
       click_link "Post ##{@post4.id}"
       expect(page).to have_current_path "/users/#{@user.id}/posts"
     end
-
   end
 end

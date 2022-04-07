@@ -2,15 +2,14 @@ require 'rails_helper'
 
 RSpec.describe 'Post show page', type: :feature do
   describe 'view page content' do
-
     before :each do
       @photo = 'http://photo.com'
       @user = User.new(name: 'lucas', photo: @photo, bio: 'Hello rails',
-        email: 'railstest84@gmail.com', password: '123456')
+                       email: 'railstest84@gmail.com', password: '123456')
       @user.skip_confirmation!
       @user.save!
       @user2 = User.new(name: 'Luis', photo: @photo, bio: 'Hello rails 2',
-        email: 'railstest85@gmail.com', password: '123456')
+                        email: 'railstest85@gmail.com', password: '123456')
       @user2.skip_confirmation!
       @user2.save!
       @post1 = Post.create(title: 'title1', text: 'body1', user_id: @user.id)
@@ -27,7 +26,7 @@ RSpec.describe 'Post show page', type: :feature do
       click_button 'Log in'
       visit "/users/#{@user.id}/posts"
     end
-    
+
     it 'shows the right content' do
       expect(page).to have_css("img[src='http://photo.com']")
       expect(page).to have_content('title1')
@@ -38,6 +37,5 @@ RSpec.describe 'Post show page', type: :feature do
       expect(page).to have_content('Comments: 4')
       expect(page).to have_content('Likes: 0')
     end
-
   end
 end

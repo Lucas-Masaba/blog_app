@@ -2,11 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'Post index page', type: :feature do
   describe 'view page content' do
-
     before :each do
       @photo = 'http://photo.com'
       @user = User.new(name: 'lucas', photo: @photo, bio: 'Hello rails',
-        email: 'railstest84@gmail.com', password: '123456')
+                       email: 'railstest84@gmail.com', password: '123456')
       @user.skip_confirmation!
       @user.save!
       @post1 = Post.create(title: 'title1', text: 'body1', user_id: @user.id)
@@ -21,7 +20,7 @@ RSpec.describe 'Post index page', type: :feature do
       click_button 'Log in'
       visit "/users/#{@user.id}/posts"
     end
-    
+
     it 'shows the right content' do
       expect(page).to have_css("img[src='http://photo.com']")
       expect(page).to have_content('lucas')
@@ -37,6 +36,5 @@ RSpec.describe 'Post index page', type: :feature do
       click_link "Post ##{@post1.id}"
       expect(page).to have_current_path "/users/#{@post1.id}/posts/#{@post1.id}"
     end
-
   end
 end
