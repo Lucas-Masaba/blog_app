@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User show page', type: :feature do
+RSpec.describe 'Post index page', type: :feature do
   describe 'view page content' do
 
     before :each do
@@ -13,42 +13,29 @@ RSpec.describe 'User show page', type: :feature do
       @post2 = Post.create(title: 'title2', text: 'body2', user_id: @user.id)
       @post3 = Post.create(title: 'title3', text: 'body3', user_id: @user.id)
       @post4 = Post.create(title: 'title4', text: 'body4', user_id: @user.id)
+      @comment1 = @post1.comments.create!(user_id: @user.id, text: 'test comment 1')
+      @comment2 = @post1.comments.create!(user_id: @user.id, text: 'test comment 2')
       visit users_index_path
       fill_in 'Email', with: 'railstest84@gmail.com'
       fill_in 'Password', with: '123456'
       click_button 'Log in'
-      visit "/users"
-      visit "/users/#{@user.id}"
+      visit "/users/#{@user.id}/posts"
     end
     
     it 'shows the right content' do
       expect(page).to have_css("img[src='http://photo.com']")
       expect(page).to have_content('lucas')
       expect(page).to have_content('Number of posts: 4')
-      expect(page).to have_content('Hello rails')
-      expect(page).to have_link('See All Posts')
-    end
-
-    it 'redirects to users first three posts' do
-      visit "/users/#{@user.id}"
-      expect(page).to have_content('body2')
-      expect(page).to have_content('body3')
-      expect(page).to have_content('body4')
-    end
-
-    it 'redirects to view all of user posts' do
-      click_link 'See All Posts'
-      expect(page).to have_current_path "/users/#{@user.id}/posts"
+      expect(page).to have_content('title1')
       expect(page).to have_content('body1')
-      expect(page).to have_content('body2')
-      expect(page).to have_content('body3')
-      expect(page).to have_content('body4')
-      #expect(page).to have_content('body5')
+      expect(page).to have_content('test comment 1')
+      expect(page).to have_content('Comments: 2')
+      expect(page).to have_content('Likes: 0')
     end
 
-    it 'redirects to view posts show page' do
-      click_link "Post ##{@post4.id}"
-      expect(page).to have_current_path "/users/#{@user.id}/posts"
+    it ' it redirects me to that posts show page' do
+      click_link "Post ##{@post1.id}"
+      expect(page).to have_current_path "/users/#{@post1.id}/posts/#{@post1.id}"
     end
 
   end
