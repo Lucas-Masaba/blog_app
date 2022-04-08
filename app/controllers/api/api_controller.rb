@@ -10,7 +10,7 @@ module Api
   
       def list_comments
         @user = User.find_by_api_token(request.headers['X-AUTH-TOKEN'])
-        @comments = Comment.where(user_id: @user_id)
+        @comments = Comment.where(user_id: @user.id)
         render json: @comments
       end
   
