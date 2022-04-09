@@ -90,3 +90,7 @@ gem 'htmlbeautifier'
 gem 'devise'
 
 gem 'cancancan'
+
+gem 'rswag'
+
+gem 'rack-cors'

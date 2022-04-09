@@ -1,0 +1,108 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  api/comments:
+    post:
+      summary: Creates a comment
+      tags:
+      - Comments
+      parameters: []
+      responses:
+        '201':
+          description: comment created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+              required:
+              - text
+          application/xml:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+              required:
+              - text
+  comments/{id}:
+    get:
+      summary: Retrieves a comment
+      tags:
+      - Comments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: name found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  text:
+                    type: string
+                required:
+                - text
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  text:
+                    type: string
+                required:
+                - text
+        '404':
+          description: pet not found
+  api/posts:
+    post:
+      summary: Creates a post
+      tags:
+      - Posts
+      parameters: []
+      responses:
+        '201':
+          description: post created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                text:
+                  type: string
+              required:
+              - title
+              - text
+          application/xml:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                text:
+                  type: string
+              required:
+              - title
+              - text
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

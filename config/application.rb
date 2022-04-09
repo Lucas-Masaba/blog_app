@@ -27,4 +27,14 @@ module BlogApp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
+
+  Rails.application.config.middleware.insert_before 0, Rack::Cors do
+    allow do
+      origins '*'
+  
+      resource '*',
+        headers: :any,
+        methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    end
+  end
 end
